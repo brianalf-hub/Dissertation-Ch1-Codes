@@ -1,0 +1,62 @@
+#Codes for Ch. 1 manuscript by Brian Alfaro
+#This was started in 2017, my greenhouse experiment had too many trait variables in it, 
+#so my advisor and I decided that it was best to reduce the amount of variables using principal components analysis and comeup with the 
+#most sensible composite variables that represented 3 diferrent suites of plant traits in Brassica tournefortii
+#this is the general code for the PCA; the greenhouse data was somewhat clean, I removed a few rows that had missing values in it
+
+# (I imported the data using the toolbar above, so no script, but the data title is "common" for common gardent experiment
+
+
+#Start
+rm(list=ls(all=TRUE)) #Clears previous work in R#maptools, 
+
+#Set working directory
+setwd("K:/CH1/a_reanalysis/architecture")
+
+# call up the following installed packages-----------------
+library(car)
+library(Hmisc)
+library(RColorBrewer)
+library(ggplot2)
+require(mgcv)
+library(plotly)
+
+precip <- common$precip
+pseas <- common$pseas
+tsea <- common$tsea
+pwq <- common$pwq
+at <- common$at
+
+# PCA for branch traits
+
+#Set names of trait (continuous) and categorical variables
+
+#Plant architecture trait group
+slmean1	<- common$slmean1
+slmean2	<- common$slmean2	
+stem1	<- common$stem1
+stem2	<- common$stem2
+stem3	<- common$stem3
+angmean	<- common$angmean
+tmean1	<- common$tmean1
+tmean2	<- common$tmean2
+
+# These are the variables I wanted to include for the branch trait PCA
+branch.pca <- prcomp(~ slmean1	+ slmean2	+ stem1	+ stem2	+ stem3	
+                     + angmean	+ tmean1	+ tmean2, center=TRUE, scale=TRUE)
+summary(branch.pca)
+loadings(branch.pca)
+head(branch.pca$scores)
+branch.pca
+
+# prcomp codes; Use your pC axes as regression predictors
+# these are a few lines of code to include your PCA axes as predictor variables; you need to save a new .csv file
+# but make sure to remove the first column (R automatically numbers each row) to make your variable names match actual data columns
+
+branch.axes <- predict(branch.pca, newdata = common)
+branch.dat <- cbind(common, branch.axes[,1:3])
+head(branch.axes, 4)
+branchpc1 <- common
+branchpc1[names(branch.dat)] <- branch.dat
+branchpc1
+write.table(branchpc1, "V:/CH1/a_reanalysis/branchpc1.csv", sep="\t") 
