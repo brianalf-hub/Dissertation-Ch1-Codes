@@ -1,7 +1,7 @@
 # Codes for Ch. 1 manuscript by Brian Alfaro
 # The greenhouse expriment was started in fall 2015, but analysis was started in 2017. My greenhouse experiment had too many trait variables in it, 
 # so my advisor and I decided that it was best to reduce the amount of variables using principal components analysis and come up with the 
-# most sensible composite variables that represented 3 diferrent suites of plant traits in Brassica tournefortii
+# most sensible composite variables that represented 6 diferrent suites of plant traits in Brassica tournefortii
 # this is the general code for the PCA; the greenhouse data was somewhat clean, I removed a few rows that had missing values in it
 
 # I imported the data using the toolbar above, so no script, but the data title is "common" for common gardent experiment
@@ -20,12 +20,6 @@ library(RColorBrewer)
 library(ggplot2)
 require(mgcv)
 library(plotly)
-
-precip <- common$precip
-pseas <- common$pseas
-tsea <- common$tsea
-pwq <- common$pwq
-at <- common$at
 
 # PCA for branch traits
 
