@@ -61,3 +61,4 @@ branchpc1 <- common
 branchpc1[names(branch.dat)] <- branch.dat
 branchpc1
 write.table(branchpc1, "V:/CH1/a_reanalysis/branchpc1.csv", sep="\t") 
+
