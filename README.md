@@ -17,5 +17,5 @@ Codes on analyses of phenotypic variation and evolution of Sahara mustard
 
 
 <p align="center">
-  <img width="800" height="400" src="https://user-images.githubusercontent.com/70289096/92504810-62185c80-f1c0-11ea-93cf-d0f6f6dc51af.png">
+  <img width="800" height="500" src="https://user-images.githubusercontent.com/70289096/92504810-62185c80-f1c0-11ea-93cf-d0f6f6dc51af.png">
 </p>
