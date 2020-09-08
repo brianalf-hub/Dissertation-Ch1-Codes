@@ -19,6 +19,8 @@ Experimental study that determined the phenotypic variation and evolution of Sah
   <img width="800" height="500" src="https://user-images.githubusercontent.com/70289096/92504810-62185c80-f1c0-11ea-93cf-d0f6f6dc51af.png">
 </p>
 
+<p align="center"> Figure 4 from Alfaro and Marshall 2019. We used generalized additive models to delineate smoothed lines to determine the type of natural or artificial selection (trait value versus fitness) occuring in each population type. Most composite traits for each type (native, invasive, or landrace) differ in pattern of selection. 
+  
 <br />
 <br />
 <br />
