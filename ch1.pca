@@ -1,10 +1,10 @@
-#Codes for Ch. 1 manuscript by Brian Alfaro
-#This was started in 2017, my greenhouse experiment had too many trait variables in it, 
-#so my advisor and I decided that it was best to reduce the amount of variables using principal components analysis and comeup with the 
-#most sensible composite variables that represented 3 diferrent suites of plant traits in Brassica tournefortii
-#this is the general code for the PCA; the greenhouse data was somewhat clean, I removed a few rows that had missing values in it
+# Codes for Ch. 1 manuscript by Brian Alfaro
+# The greenhouse expriment was started in fall 2015, but analysis was started in 2017. My greenhouse experiment had too many trait variables in it, 
+# so my advisor and I decided that it was best to reduce the amount of variables using principal components analysis and come up with the 
+# most sensible composite variables that represented 3 diferrent suites of plant traits in Brassica tournefortii
+# this is the general code for the PCA; the greenhouse data was somewhat clean, I removed a few rows that had missing values in it
 
-# (I imported the data using the toolbar above, so no script, but the data title is "common" for common gardent experiment
+# I imported the data using the toolbar above, so no script, but the data title is "common" for common gardent experiment
 
 
 #Start
@@ -41,7 +41,8 @@ angmean	<- common$angmean
 tmean1	<- common$tmean1
 tmean2	<- common$tmean2
 
-# These are the variables I wanted to include for the branch trait PCA
+# These are the variables I wanted to include for the branch trait PCA. I centered the data (z-scored) so I can compare the variation of different trait values
+
 branch.pca <- prcomp(~ slmean1	+ slmean2	+ stem1	+ stem2	+ stem3	
                      + angmean	+ tmean1	+ tmean2, center=TRUE, scale=TRUE)
 summary(branch.pca)
